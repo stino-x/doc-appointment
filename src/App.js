@@ -1,24 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
+
+// pages
+import Home from './pages/Home';
+// import About from './pages/About';
+// import Faq from './pages/help/Faq';
+// import Contact from './pages/help/Contact';
+// import NotFound from './pages/NotFound';
+// import Careers, { careersLoader } from './pages/careers/Careers';
+// import CareerDetails, { careerDetailsLoader } from './pages/careers/CareerDetails';
+
+// layouts
+import RootLayout from './layouts/RootLayout';
+// import HelpLayout from './layouts/HelpLayout';
+// import CareersLayout from './layouts/CareersLayout';
+
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <Route path="/" element={<RootLayout />}>
+//       <Route index element={<Home />} />
+//       <Route path="about" element={<About />} />
+//       <Route path="help" element={<HelpLayout />}>
+//         <Route path="faq" element={<Faq />} />
+//         <Route path="contact" element={<Contact />} />
+//       </Route>
+//       <Route path="careers" element={<CareersLayout />}>
+//         <Route
+//           index
+//           element={<Careers />}
+//           loader={careersLoader}
+//         />
+//         <Route
+//           path=":id"
+//           element={<CareerDetails />}
+//           loader={careerDetailsLoader}
+//         />
+//       </Route>
+
+//       <Route path="*" element={<NotFound />} />
+//     </Route>,
+//   ),
+// );
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+    </Route>,
+  ),
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
