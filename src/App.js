@@ -7,7 +7,8 @@ import {
 
 // pages
 import Home from './pages/Home';
-// import About from './pages/About';
+import Signup from './Auth/Signup';
+import Login from './Auth/Login';
 // import Faq from './pages/help/Faq';
 // import Contact from './pages/help/Contact';
 // import NotFound from './pages/NotFound';
@@ -48,8 +49,13 @@ import RootLayout from './layouts/RootLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
+    <Route path="/">
+      <Route index element={<Signup />} />
+      <Route path="login" element={<Login />} />
+      <Route path="main" element={<RootLayout />}>
+        <Route path="home" element={<Home />} />
+      </Route>
+      ,
     </Route>,
   ),
 );
