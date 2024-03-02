@@ -50,15 +50,15 @@ import RootLayout from './layouts/RootLayout';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index element={<Signup />} />
       <Route path="login" element={<Login />} />
       <Route path="main" element={<RootLayout />}>
+        <Route path="signup" element={<Signup />} />
         <Route path="home" element={<Home />} />
       </Route>
       ,
     </Route>,
   ),
-);
+);3
 
 function App() {
   return (
