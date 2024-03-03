@@ -10,6 +10,7 @@ export default function RootLayout() {
           <NavLink to="signup">signup</NavLink>
           <NavLink to="help">Help</NavLink>
           <NavLink to="careers">reservations</NavLink>
+          <NavLink to="login">Log in</NavLink>
         </nav>
       </header>
       <main>
