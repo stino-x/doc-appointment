@@ -9,6 +9,7 @@ import {
 import Home from './pages/Home';
 import Signup from './Auth/Signup';
 import Login from './Auth/Login';
+import ClassDetails from './components/classDetails';
 // import Faq from './pages/help/Faq';
 // import Contact from './pages/help/Contact';
 // import NotFound from './pages/NotFound';
@@ -50,11 +51,11 @@ import RootLayout from './layouts/RootLayout';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route path="login" element={<Login />} />
       <Route path="main" element={<RootLayout />}>
         <Route path="signup" element={<Signup />} />
         <Route path="home" element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="class-details" element={<ClassDetails />} />
       </Route>
       ,
     </Route>,

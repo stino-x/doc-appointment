@@ -6,10 +6,10 @@ export default function RootLayout() {
       <header>
         <nav>
           <h1>Jobarouter</h1>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="signup">signup</NavLink>
-          <NavLink to="help">Help</NavLink>
-          <NavLink to="careers">reservations</NavLink>
+          <NavLink to="/">Home </NavLink>
+          <NavLink to="signup">signup </NavLink>
+          <NavLink to="help">Help </NavLink>
+          <NavLink to="class-details">class details </NavLink>
           <NavLink to="login">Log in</NavLink>
         </nav>
       </header>
