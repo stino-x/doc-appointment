@@ -11,6 +11,7 @@ import Signup from './Auth/Signup';
 import Login from './Auth/Login';
 import ClassDetails from './components/classDetails';
 import AddClass from './components/addClass';
+import ReserveClass from './components/reserveClass';
 // import Faq from './pages/help/Faq';
 // import Contact from './pages/help/Contact';
 // import NotFound from './pages/NotFound';
@@ -58,6 +59,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} />
         <Route path="class-details" element={<ClassDetails />} />
         <Route path="add-class" element={<AddClass />} />
+        <Route path="reserve-class" element={<ReserveClass />} />
       </Route>
       ,
     </Route>,

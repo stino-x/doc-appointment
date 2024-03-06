@@ -11,6 +11,7 @@ export default function RootLayout() {
           <NavLink to="add-class">Add Class </NavLink>
           <NavLink to="class-details">class details </NavLink>
           <NavLink to="login">Log in</NavLink>
+          <NavLink to="reserve-class">Reserve class</NavLink>
         </nav>
       </header>
       <main>
