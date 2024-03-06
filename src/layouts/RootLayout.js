@@ -8,7 +8,7 @@ export default function RootLayout() {
           <h1>Jobarouter</h1>
           <NavLink to="/">Home </NavLink>
           <NavLink to="signup">signup </NavLink>
-          <NavLink to="help">Help </NavLink>
+          <NavLink to="add-class">Add Class </NavLink>
           <NavLink to="class-details">class details </NavLink>
           <NavLink to="login">Log in</NavLink>
         </nav>
