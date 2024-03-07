@@ -16,7 +16,7 @@ export const fetchTeachers = createAsyncThunk(
 const initialState = {
   teachers: [],
   status: 'idle',
-  error: null,
+  loading: false,
 };
 
 const DisplayTeachersSlice = createSlice({
@@ -25,7 +25,7 @@ const DisplayTeachersSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchTeachers.pending, (state) => {
-      state.status = 'loading';
+      state.loading = true;
       state.error = null; // Clear previous errors when making a new request
     });
     builder.addCase(fetchTeachers.fulfilled, (state, action) => {

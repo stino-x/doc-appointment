@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createClass } from '../redux/reducers/createClassSlice';
+import CalendarInput from '../component/Calender';
 
 const CreateClassForm = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const CreateClassForm = () => {
     startTime: '',
     endTime: '',
   });
-  const { status, error } = useSelector((state) => state.appointment);
+  const { status, error } = useSelector((state) => state.createClass);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,6 +39,7 @@ const CreateClassForm = () => {
         <input type="time" name="startTime" value={formData.startTime} onChange={handleChange} required />
         <label>End Time:</label>
         <input type="time" name="endTime" value={formData.endTime} onChange={handleChange} required />
+        <CalendarInput />
         <button type="submit" disabled={status === 'loading'}>Create Appointment</button>
       </form>
     </div>

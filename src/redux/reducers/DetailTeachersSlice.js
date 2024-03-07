@@ -17,6 +17,7 @@ const initialState = {
   teacher: null,
   status: 'idle',
   error: null,
+  loading: false,
 };
 
 const DetailsTeacherSlice = createSlice({
@@ -25,7 +26,7 @@ const DetailsTeacherSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchTeacherDetails.pending, (state) => {
-      state.status = 'loading';
+      state.loading = true;
     });
     builder.addCase(fetchTeacherDetails.fulfilled, (state, action) => {
       state.status = 'succeeded';

@@ -17,6 +17,7 @@ const initialState = {
   classes: [],
   status: 'idle',
   error: null,
+  loading: false,
 };
 
 const DisplayClassesSlice = createSlice({
@@ -25,7 +26,7 @@ const DisplayClassesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchClasses.pending, (state) => {
-      state.status = 'loading';
+      state.loading = true;
       state.error = null; // Clear previous errors when making a new request
     });
     builder.addCase(fetchClasses.fulfilled, (state, action) => {

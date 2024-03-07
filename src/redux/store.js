@@ -16,6 +16,7 @@ import AvailabilitySliceReducer from './reducers/createAvailabilitySlice';
 import ClassSliceReducer from './reducers/createClassSlice';
 import DisplayTeachersSliceReducer from './reducers/fetchTeachersSlice';
 import DisplayClassesSliceReducer from './reducers/fetchClassesSlice';
+import DeleteClassSliceReducer from './reducers/deleteClassSlice';
 
 const rootReducer = {
   signup: SignupReducer,
@@ -23,6 +24,7 @@ const rootReducer = {
   TeacherDetails: DetailsTeacherSliceReducer,
   createAvailability: AvailabilitySliceReducer,
   createClass: ClassSliceReducer,
+  deleteClass: DeleteClassSliceReducer,
   Teachers: DisplayTeachersSliceReducer,
   AllClasses: DisplayClassesSliceReducer,
   // createReservation: createReservationReducer,

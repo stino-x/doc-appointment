@@ -17,6 +17,7 @@ import Login from './Auth/Login';
 
 // layouts
 import RootLayout from './layouts/RootLayout';
+import CreateClassForm from './pages/CreateClassForm';
 // import HelpLayout from './layouts/HelpLayout';
 // import CareersLayout from './layouts/CareersLayout';
 
@@ -51,6 +52,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<Signup />} />
+      <Route path="book-class" element={<CreateClassForm />} />
       <Route path="login" element={<Login />} />
       <Route path="main" element={<RootLayout />}>
         <Route path="home" element={<Home />} />

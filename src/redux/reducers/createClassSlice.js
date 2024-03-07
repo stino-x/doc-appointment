@@ -27,6 +27,7 @@ export const createClass = createAsyncThunk(
 const initialState = {
   status: 'idle',
   error: null,
+  loading: false,
 };
 
 const ClassSlice = createSlice({
@@ -35,7 +36,7 @@ const ClassSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(createClass.pending, (state) => {
-      state.status = 'loading';
+      state.loading = true;
       state.error = null; // Clear previous errors when making a new request
     });
     builder.addCase(createClass.fulfilled, (state) => {

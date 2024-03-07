@@ -21,6 +21,7 @@ export const createAvailability = createAsyncThunk(
 
 const initialState = {
   status: 'idle',
+  loading: false,
   error: null,
 };
 
@@ -30,7 +31,7 @@ const AvailabilitySlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(createAvailability.pending, (state) => {
-      state.status = 'loading';
+      state.loading = true;
     });
     builder.addCase(createAvailability.fulfilled, (state) => {
       state.status = 'succeeded';

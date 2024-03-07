@@ -26,6 +26,7 @@ const initialState = {
   status: 'idle',
   error: null,
   admin: false,
+  loading: false,
 };
 
 const SignupSlice = createSlice({
@@ -34,7 +35,7 @@ const SignupSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(signup.pending, (state) => {
-      state.status = 'loading';
+      state.loading = true;
     });
     builder.addCase(signup.fulfilled, (state, action) => {
       state.status = 'succeeded';
