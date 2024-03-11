@@ -1,16 +1,13 @@
 .dropdown {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   width: 200px;
   background-color: #c2b4b4;
-}
-
-.dropdown {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 .dropdown ul {
