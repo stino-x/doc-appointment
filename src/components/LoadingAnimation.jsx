@@ -1,20 +1,20 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import './LoadingAnimation.css'; // Assuming you have CSS for your loading animation
-
+import './LoadingAnimation.css';
+// Assuming you have CSS for your loading animation
 const LoadingAnimation = ({
   loadingSignup, loadingTeacher, loadingDetails, loadingAvailability, loadingClass,
   loadingDeleteClass, loadingDeleteTeacher, loadingTeachers, loadingAllClasses, loadingLogin,
 }) => {
-  const isLoading = loadingSignup  loadingDetails  loadingClass
-     loadingTeachers  loadingLogin || loadingDeleteTeacher;
-
+  const isLoading = loadingSignup || loadingTeacher || loadingDetails || loadingAvailability
+  || loadingClass
+  || loadingDeleteClass || loadingTeachers || loadingAllClasses || loadingLogin
+  || loadingDeleteTeacher;
   return (
     <div className="loading-container">
       {isLoading && (
-        <div className={scene ${isLoading ? 'loading' : ''}}>
+        <div className={`scene ${isLoading ? 'loading' : ''}`}>
           <div className="shadow" />
           <div className="jumper">
             <div className="spinner">
@@ -37,7 +37,6 @@ const LoadingAnimation = ({
     </div>
   );
 };
-
 const mapStateToProps = (state) => ({
   loadingSignup: state.signup.loading,
   loadingTeacher: state.createTeacher.loading,
@@ -50,7 +49,6 @@ const mapStateToProps = (state) => ({
   loadingLogin: state.Login.loading,
   loadingDeleteTeacher: state.deleteTeacher.loading,
 });
-
 LoadingAnimation.propTypes = {
   loadingSignup: PropTypes.bool.isRequired,
   loadingTeacher: PropTypes.bool.isRequired,
@@ -63,5 +61,4 @@ LoadingAnimation.propTypes = {
   loadingAllClasses: PropTypes.bool.isRequired,
   loadingLogin: PropTypes.bool.isRequired,
 };
-
 export default connect(mapStateToProps)(LoadingAnimation);

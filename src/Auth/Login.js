@@ -1,32 +1,44 @@
-import React from 'react';
-import '../assets/stylesheets/autherization.css';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { login } from '../redux/reducers/LoginSlice';
 
-const Login = () => (
-  <div className="auth-container">
-    <div className="auth-form">
-      <h1>Login</h1>
-      <div className="input-group">
-        <input
-          type="text"
-          placeholder="Username"
-          className="input-field"
-        />
-      </div>
-      <div className="input-group">
-        <input
-          type="password"
-          placeholder="Password"
-          className="input-field"
-        />
-      </div>
-      <button type="button" className="login-button">Login</button>
-      <p className="signup-link">
-        Don&apos;t have an account?
-        {' '}
-        <button type="button" className="login-url">Sign up</button>
-      </p>
-    </div>
-  </div>
-);
-
-export default Login;
+const LogInForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const signupStatus = useSelector((state) => state.Login.status);
+  if (signupStatus === 'succeeded') {
+    navigate('/home');
+  }
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(formData));
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Email"
+      />
+      <input
+        type="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="Password"
+      />
+      <button type="submit">Log In</button>
+    </form>
+  );
+};
+export default LogInForm;
