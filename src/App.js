@@ -9,9 +9,10 @@ import {
 import Home from './pages/Home';
 import Signup from './Auth/Signup';
 import Login from './Auth/Login';
-import ClassDetails from './components/classDetails';
-import AddClass from './components/addClass';
-import ReserveClass from './components/reserveClass';
+// import AddClass from './pages/CreateClassForm';
+import ReserveClass from './pages/reserveClass';
+import CreateClassForm from './pages/CreateClassForm';
+import CreateTeacherForm from './pages/CreateTeacherForm';
 // import Faq from './pages/help/Faq';
 // import Contact from './pages/help/Contact';
 // import NotFound from './pages/NotFound';
@@ -22,6 +23,9 @@ import ReserveClass from './components/reserveClass';
 import RootLayout from './layouts/RootLayout';
 // import HelpLayout from './layouts/HelpLayout';
 // import CareersLayout from './layouts/CareersLayout';
+// import CreateTeacherForm from './pages/CreateTeacherForm';
+import CreateAvailabilityForm from './pages/CreateAvailabilityForm';
+import TeacherDetails from './pages/TeacherDetails';
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -53,12 +57,14 @@ import RootLayout from './layouts/RootLayout';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
+      <Route index element={<Signup />} />
+      <Route path="login" element={<Login />} />
       <Route path="main" element={<RootLayout />}>
-        <Route path="signup" element={<Signup />} />
+        <Route path="book-class" element={<CreateClassForm />} />
+        <Route path="add-teacher" element={<CreateTeacherForm />} />
+        <Route path="add-timeslot" element={<CreateAvailabilityForm />} />
+        <Route path="teacherdetails" element={<TeacherDetails />} />
         <Route path="home" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="class-details" element={<ClassDetails />} />
-        <Route path="add-class" element={<AddClass />} />
         <Route path="reserve-class" element={<ReserveClass />} />
       </Route>
       ,

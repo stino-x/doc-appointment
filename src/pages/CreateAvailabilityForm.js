@@ -11,14 +11,11 @@ const CreateAvailabilityForm = () => {
     capacity: '',
     date: '',
   });
-
   const teacherId = localStorage.getItem('teacherId');
   const userId = localStorage.getItem('USERID');
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createAvailability({ teacherId, availabilityData: formData, userId }))
@@ -36,7 +33,6 @@ const CreateAvailabilityForm = () => {
         // Handle error (display error message, etc.)
       });
   };
-
   return (
     <form onSubmit={handleSubmit}>
       <label>Start Time:</label>
@@ -51,5 +47,4 @@ const CreateAvailabilityForm = () => {
     </form>
   );
 };
-
 export default CreateAvailabilityForm;

@@ -1,49 +1,62 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import '../assets/stylesheets/signup.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { signup } from '../redux/reducers/SignupSlice';
 
-export default function Signup() {
+const SignupForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const signupStatus = useSelector((state) => state.signup.status);
+  if (signupStatus === 'succeeded') {
+    navigate('/home');
+  }
   const [formData, setFormData] = useState({
-    username: '',
+    name: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    password_confirmation: '',
+    admin: false,
+    nickname: '',
+    image: '',
   });
-
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    const {
+      name, value, type, checked,
+    } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle signup logic here (e.g., send data to backend)
-    console.log(formData);
-    // Clear form fields after submission
+    // Dispatch signup action
+    await dispatch(signup(formData));
+    // Clear form inputs on successful signup
     setFormData({
-      username: '',
+      name: '',
       email: '',
       password: '',
-      confirmPassword: '',
+      password_confirmation: '', // Reset to empty string
+      admin: false,
+      nickname: '',
+      image: '',
     });
   };
-
   return (
-    <div className="page">
-      <h2>Sign Up</h2>
+    <div>
+      <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
-            id="username"
-            name="username"
-            value={formData.username}
+            id="name"
+            name="name"
+            value={formData.name}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div>
@@ -73,14 +86,45 @@ export default function Signup() {
           <input
             type="password"
             id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
+            name="password_confirmation" // Updated to 'password_confirmation'
+            value={formData.password_confirmation} // Updated to 'password_confirmation'
             onChange={handleChange}
-            required
+            // required
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <div>
+          <label htmlFor="admin">Admin:</label>
+          <input
+            type="checkbox"
+            id="admin"
+            name="admin"
+            checked={formData.admin}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="nickname">Nickname:</label>
+          <input
+            type="text"
+            id="nickname"
+            name="nickname"
+            value={formData.nickname}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="image">Image URL:</label>
+          <input
+            type="text"
+            id="image"
+            name="image"
+            value={formData.image}
+            onChange={handleChange}
+          />
+        </div>
+        <button type="submit">Signup</button>
       </form>
     </div>
   );
-}
+};
+export default SignupForm;
