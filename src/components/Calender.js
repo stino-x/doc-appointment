@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux';
 import Calendar from 'react-calendar';
 import moment from 'moment';
 import 'react-calendar/dist/Calendar.css';
-import '../styles/tiles.css';
 import { createClass } from '../redux/reducers/createClassSlice';
+import '../assets/stylesheets/tiles.css';
+
 // Adjust the import path accordingly
 const CalendarInput = () => {
   const dispatch = useDispatch();
