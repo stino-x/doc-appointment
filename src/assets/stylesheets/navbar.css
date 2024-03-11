@@ -1,25 +1,24 @@
-nav {
-  background-color: #333;
-  padding: 10px 20px;
+.dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: #c2b4b4;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.dropdown {
   display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-li {
-  margin-right: 20px;
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-}
-
-a:hover {
-  color: #fc0;
+.dropdown ul li {
+  padding: 10px;
 }
