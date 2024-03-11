@@ -1,0 +1,41 @@
+/* rootLayout.css */
+
+.root-layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 10%;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  padding: 20px;
+}
+
+.icon img {
+  width: 100%;
+  height: auto;
+}
+
+.main-content {
+  width: 90%;
+  padding: 20px;
+}
+
+footer {
+  margin-top: auto;
+  padding: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #333;
+}

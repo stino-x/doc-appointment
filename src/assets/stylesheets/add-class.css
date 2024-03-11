@@ -1,0 +1,95 @@
+.add-class-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  height: 100vh;
+  background-color: rgb(243, 243, 243);
+}
+
+.add-class-title {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 7vh 0;
+}
+
+.add-class-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  padding: 20px;
+  margin-top: 10vh;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-class-name,
+.input-class-address,
+.input-class-description,
+.input-class-price,
+.input-class-image {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgba(255, 255, 255, 0.7); /* Input background color with transparency */
+}
+
+.input-class-name:focus,
+.input-class-address:focus,
+.input-class-description:focus,
+.input-class-price:focus,
+.input-class-image:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-class-button {
+  padding: 10px 30px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  align-self: center;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.add-class-button:hover {
+  transform: scale(1.05);
+  background-color: #45a049;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .add-class-form {
+    width: 95%;
+  }
+}
