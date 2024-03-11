@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/stylesheets/navbar.css';
+import LogoutButton from './LogoutButton';
 
 const Navbar = () => (
   <nav className="dropdown">
@@ -25,9 +26,8 @@ const Navbar = () => (
         <li>
           <Link to="reservations">Reservations</Link>
         </li>
-        <li>
-          <button className="logout-button" type="button">Logout</button>
-        </li>
+        <LogoutButton />
+        <li />
       </>
       <>
         <li>
