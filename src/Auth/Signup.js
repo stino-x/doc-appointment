@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import '../assets/stylesheets/signup.css'
+import '../assets/stylesheets/signup.css';
 
 export default function Signup() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -26,7 +26,7 @@ export default function Signup() {
       username: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
     });
   };
 

@@ -64,7 +64,7 @@ const router = createBrowserRouter(
       ,
     </Route>,
   ),
-);3
+);
 
 function App() {
   return (
