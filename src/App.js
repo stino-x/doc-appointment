@@ -9,9 +9,9 @@ import {
 import Home from './pages/Home';
 import Signup from './Auth/Signup';
 import Login from './Auth/Login';
-import ClassDetails from './components/classDetails';
-import AddClass from './components/addClass';
-import ReserveClass from './components/reserveClass';
+import ClassDetails from './pages/classDetails';
+import AddClass from './pages/CreateClassForm';
+import ReserveClass from './pages/reserveClass';
 // import Faq from './pages/help/Faq';
 // import Contact from './pages/help/Contact';
 // import NotFound from './pages/NotFound';
