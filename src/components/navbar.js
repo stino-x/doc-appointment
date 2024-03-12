@@ -33,7 +33,7 @@ const Navbar = () => {
         <span className={`dropbtn__icon2 ${isOpen ? 'active' : ''}`} />
       </button>
       <ul className={`list ${isOpen ? 'active' : ''}`}>
-        <img className="logo" src="https://cdn.freelogodesign.org/files/dca7d4dff3b547d8991b09b057a11880/thumb/logo_200x200.png?v=638345321150000000" alt="logo" />
+        <img className="logo" src="../assets/images/logooo.jpg" alt="logo" />
         <li>
           <Link to="/" onClick={closeNavbar}>Home</Link>
         </li>
