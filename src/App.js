@@ -26,6 +26,7 @@ import RootLayout from './layouts/RootLayout';
 // import CreateTeacherForm from './pages/CreateTeacherForm';
 import CreateAvailabilityForm from './pages/CreateAvailabilityForm';
 import TeacherDetails from './pages/TeacherDetails';
+import Classes from './components/classes';
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -66,6 +67,7 @@ const router = createBrowserRouter(
         <Route path="teacherdetails" element={<TeacherDetails />} />
         <Route path="home" element={<Home />} />
         <Route path="reserve-class" element={<ReserveClass />} />
+        <Route path="classes" element={<Classes />} />
       </Route>
       ,
     </Route>,
