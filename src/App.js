@@ -26,8 +26,6 @@ import RootLayout from './layouts/RootLayout';
 // import CreateTeacherForm from './pages/CreateTeacherForm';
 import CreateAvailabilityForm from './pages/CreateAvailabilityForm';
 import TeacherDetails from './pages/TeacherDetails';
-import Classes from './components/classes';
-import './App.css';
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -60,7 +58,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<Signup />} />
-      <Route path="main/login" element={<Login />} />
+      <Route path="login" element={<Login />} />
       <Route path="main" element={<RootLayout />}>
         <Route path="book-class" element={<CreateClassForm />} />
         <Route path="add-teacher" element={<CreateTeacherForm />} />
@@ -68,7 +66,6 @@ const router = createBrowserRouter(
         <Route path="teacherdetails" element={<TeacherDetails />} />
         <Route path="home" element={<Home />} />
         <Route path="reserve-class" element={<ReserveClass />} />
-        <Route path="classes" element={<Classes />} />
       </Route>
       ,
     </Route>,
