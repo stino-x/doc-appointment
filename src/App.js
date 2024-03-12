@@ -58,7 +58,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<Signup />} />
-      <Route path="login" element={<Login />} />
+      <Route path="main/login" element={<Login />} />
       <Route path="main" element={<RootLayout />}>
         <Route path="book-class" element={<CreateClassForm />} />
         <Route path="add-teacher" element={<CreateTeacherForm />} />

@@ -6,7 +6,7 @@ import LogoutButton from './LogoutButton';
 const Navbar = () => (
   <nav className="dropdown">
     <ul>
-      <img className="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqUlEQVR4nO2SQQqDMBBF33Fc2JUuvUBpT603qaVleokphQgSYiB1jNTmw4dhEvL4M4Gioky6AHdAjT0C5xh43AA6+RYD68Y+HliABuhyggWo3TutNVhcotbVIWjtna0Gv4DT7G4FPLz+p/e03LF4iZbqpaT6DTiUKJQ+llRTwbHdidu1v28TcJMwRlNwl5jIDKzGPg44pOtPgP9LQ4bPNewF7vPPs4id9AasA5TYbAtamwAAAABJRU5ErkJggg==" alt="logo" />
+      <img className="logo" src="../assets/images/logooo.jpg" alt="logo" />
       <li>
         <Link to="/">Home</Link>
       </li>
@@ -26,8 +26,9 @@ const Navbar = () => (
         <li>
           <Link to="reservations">Reservations</Link>
         </li>
-        <LogoutButton />
-        <li />
+        <li>
+          <LogoutButton />
+        </li>
       </>
       <>
         <li>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Calendar from 'react-calendar';
 import moment from 'moment';
-import 'react-calendar/dist/Calendar.css';
+import Calendar from 'react-calendar';
 import { createClass } from '../redux/reducers/createClassSlice';
 import '../assets/stylesheets/tiles.css';
 

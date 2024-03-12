@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { signup } from '../redux/reducers/SignupSlice';
+import '../assets/stylesheets/signup.css';
+import '../assets/stylesheets/autherization.css';
 
 const SignupForm = () => {
   const dispatch = useDispatch();
@@ -45,9 +47,9 @@ const SignupForm = () => {
     });
   };
   return (
-    <div>
+    <div className="page">
       <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
           <input

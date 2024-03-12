@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { login } from '../redux/reducers/LoginSlice';
+import '../assets/stylesheets/autherization.css';
 
 const LogInForm = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const LogInForm = () => {
     dispatch(login(formData));
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="auth-form" onSubmit={handleSubmit}>
       <input
         type="email"
         name="email"

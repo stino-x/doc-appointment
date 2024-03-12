@@ -6,16 +6,46 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 200px;
-  background-color: #c2b4b4;
+  width: 250px;
+  background-color: #50cb45;
+  align-items: start;
 }
 
 .dropdown ul {
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
-  padding: 0;
-  margin: 0;
+  align-items: start;
 }
 
-.dropdown ul li {
-  padding: 10px;
+.dropdown ul li ,a , button {
+  padding: 5px;
+  margin:  5px 3px;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 700;
+  border: none;
+  background-color: #50cb45;
+  color: white;
+}
+
+.icons {
+  display: flex;
+}
+
+.logo {
+  width: 25px;
+  margin: 8px;
+
+}
+
+.menu-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
