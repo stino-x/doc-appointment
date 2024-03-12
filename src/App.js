@@ -27,6 +27,7 @@ import RootLayout from './layouts/RootLayout';
 import CreateAvailabilityForm from './pages/CreateAvailabilityForm';
 import TeacherDetails from './pages/TeacherDetails';
 import Classes from './components/classes';
+import './App.css';
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(

@@ -6,3 +6,7 @@
 .not-booked {
   opacity: 0.3;
 }
+
+.calendar-input {
+  padding: 20px;
+}
