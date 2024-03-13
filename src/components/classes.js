@@ -10,74 +10,147 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css';
 import '../assets/stylesheets/classes.css';
+import CardComponent from './CardComponent';
 
-const classes = [
-  {
-    id: 1,
-    image: 'https://example.com/house1.jpg',
-    name: 'Arabic class',
-    platform: 'Zoom',
-    description: 'An intensive course',
-    price_per_lesson: 100,
-  },
-  {
-    id: 2,
-    image: 'https://example.com/house2.jpg',
-    name: 'English class',
-    platform: 'Skype',
-    description: 'Easy to take course',
-    price_per_lesson: 150,
-  },
-  {
-    id: 3,
-    image: 'https://example.com/house1.jpg',
-    name: 'Arabic class',
-    platform: 'Zoom',
-    description: 'An intensive course',
-    price_per_lesson: 100,
-  },
-  {
-    id: 4,
-    image: 'https://example.com/house2.jpg',
-    name: 'English class',
-    platform: 'Skype',
-    description: 'Easy to take course',
-    price_per_lesson: 150,
-  },
-  {
-    id: 5,
-    image: 'https://example.com/house1.jpg',
-    name: 'Arabic class',
-    platform: 'Zoom',
-    description: 'An intensive course',
-    price_per_lesson: 100,
-  },
-  {
-    id: 6,
-    image: 'https://example.com/house2.jpg',
-    name: 'English class',
-    platform: 'Skype',
-    description: 'Easy to take course',
-    price_per_lesson: 150,
-  },
-  {
-    id: 7,
-    image: 'https://example.com/house1.jpg',
-    name: 'Arabic class',
-    platform: 'Zoom',
-    description: 'An intensive course',
-    price_per_lesson: 100,
-  },
-  {
-    id: 8,
-    image: 'https://example.com/house2.jpg',
-    name: 'English class',
-    platform: 'Skype',
-    description: 'Easy to take course',
-    price_per_lesson: 150,
-  },
-  // Add more dummy house objects as needed
-];
+const teachers = [{
+  teachers: [
+    {
+      id: 1,
+      name: 'John Doe',
+      subject: 'Mathematics',
+      image: 'https://picsum.photos/id/103/800/450',
+      qualifications: 'Ph.D. in Mathematics',
+      experience: 10,
+      contact_information: 'john.doe@example.com',
+      bio: 'John Doe is a passionate mathematician with extensive teaching experience.',
+      active: true,
+      availabilities: [
+        {
+          id: 1,
+          start_time: '2024-03-13T09:00:00Z',
+          end_time: '2024-03-13T11:00:00Z',
+          capacity: 5,
+          date: '2024-03-13',
+        },
+        {
+          id: 2,
+          start_time: '2024-03-14T10:00:00Z',
+          end_time: '2024-03-14T12:00:00Z',
+          capacity: 3,
+          date: '2024-03-14',
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      subject: 'Science',
+      image: 'https://picsum.photos/id/1011/800/450',
+      qualifications: 'M.Sc. in Biology',
+      experience: 8,
+      contact_information: 'jane.smith@example.com',
+      bio: 'Jane Smith is an enthusiastic biologist who loves sharing her knowledge.',
+      active: true,
+      availabilities: [
+        {
+          id: 3,
+          start_time: '2024-03-15T13:00:00Z',
+          end_time: '2024-03-15T15:00:00Z',
+          capacity: 4,
+          date: '2024-03-15',
+        },
+        {
+          id: 4,
+          start_time: '2024-03-16T14:00:00Z',
+          end_time: '2024-03-16T16:00:00Z',
+          capacity: 6,
+          date: '2024-03-16',
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: 'Alice Johnson',
+      subject: 'English Literature',
+      image: 'http://example.com/images/alicejohnson.jpg',
+      qualifications: 'MA in English Literature',
+      experience: 5,
+      contact_information: 'alice.johnson@example.com',
+      bio: 'Alice Johnson is an avid reader and an experienced English teacher.',
+      active: true,
+      availabilities: [
+        {
+          id: 5,
+          start_time: '2024-03-17T09:00:00Z',
+          end_time: '2024-03-17T11:00:00Z',
+          capacity: 8,
+          date: '2024-03-17',
+        },
+        {
+          id: 6,
+          start_time: '2024-03-18T10:00:00Z',
+          end_time: '2024-03-18T12:00:00Z',
+          capacity: 10,
+          date: '2024-03-18',
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: 'Michael Brown',
+      subject: 'History',
+      image: 'https://picsum.photos/id/1005/800/450',
+      qualifications: 'BA in History',
+      experience: 7,
+      contact_information: 'michael.brown@example.com',
+      bio: 'Michael Brown is passionate about exploring and teaching history.',
+      active: true,
+      availabilities: [
+        {
+          id: 7,
+          start_time: '2024-03-19T13:00:00Z',
+          end_time: '2024-03-19T15:00:00Z',
+          capacity: 6,
+          date: '2024-03-19',
+        },
+        {
+          id: 8,
+          start_time: '2024-03-20T14:00:00Z',
+          end_time: '2024-03-20T16:00:00Z',
+          capacity: 8,
+          date: '2024-03-20',
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: 'Emily Wilson',
+      subject: 'Chemistry',
+      image: 'http://example.com/images/emilywilson.jpg',
+      qualifications: 'Ph.D. in Chemistry',
+      experience: 12,
+      contact_information: 'emily.wilson@example.com',
+      bio: 'Emily Wilson is a dedicated chemist and educator, with a focus on practical experiments.',
+      active: true,
+      availabilities: [
+        {
+          id: 9,
+          start_time: '2024-03-21T09:00:00Z',
+          end_time: '2024-03-21T11:00:00Z',
+          capacity: 4,
+          date: '2024-03-21',
+        },
+        {
+          id: 10,
+          start_time: '2024-03-22T10:00:00Z',
+          end_time: '2024-03-22T12:00:00Z',
+          capacity: 6,
+          date: '2024-03-22',
+        },
+      ],
+    },
+  ],
+}];
 
 const Classes = () => (
   <section className="classes-section">
@@ -105,34 +178,10 @@ const Classes = () => (
         nextEl: '.next',
       }}
     >
-      {classes.map((slide) => (
-        <SwiperSlide
-          key={slide.id}
-          style={{ display: 'flex' }}
-          className="class"
-        >
-          <Link className="link" to={`/classes/${slide.id}`} state={{ class: slide }}>
-            <div className="circle">
-              <img className="class-img" src={slide.image} alt="class" />
-            </div>
-            <div className="details">
-              <h3>{slide.name}</h3>
-              <p className="points">. . . . . . . . . . . . . . . . . . . . .</p>
-              <p>
-                Platform:&nbsp;
-                {slide.platform}
-                ,&nbsp;
-                {slide.description}
-                , on a price of&nbsp;
-                {slide.price_per_lesson}
-                $ per lesson
-              </p>
-              <div className="circle-icons">
-                <img className="circle-icon" src="https://cdn-icons-png.flaticon.com/128/665/665209.png" alt="icons" />
-                <img className="circle-icon" src="https://cdn-icons-png.flaticon.com/128/665/665228.png" alt="icons" />
-                <img className="circle-icon" src="https://cdn-icons-png.flaticon.com/128/665/665211.png" alt="icons" />
-              </div>
-            </div>
+      {teachers.map((teacher) => (
+        <SwiperSlide key={teacher.id} style={{ display: 'flex' }} className="class">
+          <Link className="link" to={`/teachers/${teacher.id}`} state={{ teacher }}>
+            <CardComponent teacher={teacher} />
           </Link>
         </SwiperSlide>
       ))}
