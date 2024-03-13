@@ -1,6 +1,10 @@
 .classes-section {
+  display: flex;
+  flex-direction: column;
   background-color: rgb(243, 243, 243);
   height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper {
