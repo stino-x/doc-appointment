@@ -1,45 +1,85 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { login } from '../redux/reducers/LoginSlice';
-import '../assets/stylesheets/autherization.css';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { loginUser } from '../redux/reducers/loginSlice';
+import styles from '../Styles/Login.module.css';
 
-const LogInForm = () => {
+export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
-  const signupStatus = useSelector((state) => state.Login.status);
-  if (signupStatus === 'succeeded') {
-    navigate('/home');
-  }
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const navigate = useNavigate();
+  const status = useSelector((state) => state.auth.status);
+  const error = useSelector((state) => state.auth.error);
+
+  // Accessing message from location state
+  const location = useLocation();
+  const { message } = location.state || {};
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(formData));
+    if (status === 'loading') {
+      return;
+    }
+    dispatch(loginUser({ email, password }))
+      .unwrap()
+      .then(() => {
+        setEmail('');
+        setPassword('');
+        navigate('/home');
+      })
+      .catch((error) => {
+        console.error('Login failed:', error);
+      });
   };
+
   return (
-    <form className="auth-form" onSubmit={handleSubmit}>
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        placeholder="Email"
-      />
-      <input
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={handleChange}
-        placeholder="Password"
-      />
-      <button type="submit">Log In</button>
-    </form>
+    <div className={styles.container}>
+      <div className={styles.text}>
+        LOG IN
+      </div>
+      <form onSubmit={handleSubmit}>
+        <div className={styles['form-row']}>
+          <div className={styles['input-data']}>
+            <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <div className={styles.underline} />
+            <label htmlFor="email">Email Address</label>
+          </div>
+          <div className={styles['input-data']}>
+            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <div className={styles.underline} />
+            <label htmlFor="website">Password</label>
+          </div>
+        </div>
+        <div className={styles['form-row']}>
+          <div className={styles['input-data']}>
+            <input className={styles['test-button']} type="submit" value="Submit" />
+          </div>
+        </div>
+        <div className={`${styles['form-row']} ${styles['login-message']}`}>
+          <div className={styles['input-data']}>
+            {message && <p>{message}</p>}
+          </div>
+        </div>
+        <div className={`${styles['form-row']} ${styles['login-message']}`}>
+          {/* Use styles['form-row'] and styles['login-message'] */}
+          <div className={styles['input-data']}>
+            {/* Use styles['input-data'] instead of 'input-data' */}
+            Dont have an account?
+            {' '}
+            <Link to="/">Signup</Link>
+          </div>
+        </div>
+        {status === 'loading' && <div>Loading...</div>}
+        {status === 'failed' && (
+          <div>
+            Error:
+            {' '}
+            {error}
+          </div>
+        )}
+      </form>
+    </div>
   );
-};
-export default LogInForm;
+}
