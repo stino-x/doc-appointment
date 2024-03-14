@@ -56,7 +56,7 @@ export default function DoctorDetails() {
 
   return (
     <>
-      <Link className={styles['link-form']} to="home">HOME</Link>
+      <Link className={styles['link-form']} to="/home">HOME</Link>
       <div className={`${styles['doctor-page']} ${isMobile ? styles.mobile : styles.desktop}`}>
         <div className={styles['doctor-image']}>
           <img src={doctor.picture} alt="Doctor" />
