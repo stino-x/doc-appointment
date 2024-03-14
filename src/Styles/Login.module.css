@@ -18,6 +18,11 @@
   max-height: 100%;
 }
 
+.link-form {
+  color: black;
+  font-size: 1.2rem;
+}
+
 .container .text {
   text-align: center;
   font-size: 41px;

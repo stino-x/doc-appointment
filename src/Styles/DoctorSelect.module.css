@@ -17,6 +17,11 @@
   text-transform: capitalize;
 }
 
+.link-form {
+  color: black;
+  font-size: 1.2rem;
+}
+
 #root {
   position: relative;
   max-width: 100%;

@@ -55,36 +55,39 @@ export default function DoctorDetails() {
   const endingShift = extractTime(doctor.ending_shift);
 
   return (
-    <div className={`${styles['doctor-page']} ${isMobile ? styles.mobile : styles.desktop}`}>
-      <div className={styles['doctor-image']}>
-        <img src={doctor.picture} alt="Doctor" />
-      </div>
-      <div className={styles['doctor-info']}>
-        <div className={styles['doctor-details']}>
-          <h1>{doctor.name}</h1>
-          <p>
-            Specialist in:
-            {doctor.speciality}
-          </p>
-          <p>
-            Email:
-            {doctor.email}
-          </p>
-          <p>
-            Phone:
-            {doctor.phone}
-          </p>
-          <p>
-            Shift:
-            {startingShift}
-            {' '}
-            -
-            {endingShift}
-          </p>
-          {/* Link to the reservation form */}
-          <Link to="/doctor-reservation-form" className={styles.button}>RESERVE</Link>
+    <>
+      <Link className={styles['link-form']} to="home">HOME</Link>
+      <div className={`${styles['doctor-page']} ${isMobile ? styles.mobile : styles.desktop}`}>
+        <div className={styles['doctor-image']}>
+          <img src={doctor.picture} alt="Doctor" />
+        </div>
+        <div className={styles['doctor-info']}>
+          <div className={styles['doctor-details']}>
+            <h1>{doctor.name}</h1>
+            <p>
+              Specialist in:
+              {doctor.speciality}
+            </p>
+            <p>
+              Email:
+              {doctor.email}
+            </p>
+            <p>
+              Phone:
+              {doctor.phone}
+            </p>
+            <p>
+              Shift:
+              {startingShift}
+              {' '}
+              -
+              {endingShift}
+            </p>
+            {/* Link to the reservation form */}
+            <Link to="/doctor-reservation-form" className={styles.button}>RESERVE</Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

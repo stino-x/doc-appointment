@@ -35,49 +35,52 @@ export default function Login() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.text}>
-        LOG IN
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className={styles['form-row']}>
-          <div className={styles['input-data']}>
-            <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <div className={styles.underline} />
-            <label htmlFor="email">Email Address</label>
-          </div>
-          <div className={styles['input-data']}>
-            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <div className={styles.underline} />
-            <label htmlFor="website">Password</label>
-          </div>
+    <>
+      <Link className={styles['link-form']} to="/home">HOME</Link>
+      <div className={styles.container}>
+        <div className={styles.text}>
+          LOG IN
         </div>
-        <div className={styles['form-row']}>
-          <div className={styles['input-data']}>
-            <input className={styles['test-button']} type="submit" value="Submit" />
+        <form onSubmit={handleSubmit}>
+          <div className={styles['form-row']}>
+            <div className={styles['input-data']}>
+              <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <div className={styles.underline} />
+              <label htmlFor="email">Email Address</label>
+            </div>
+            <div className={styles['input-data']}>
+              <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <div className={styles.underline} />
+              <label htmlFor="website">Password</label>
+            </div>
           </div>
-        </div>
-        <div className={`${styles['form-row']} ${styles['login-message']}`}>
-          <div className={styles['input-data']}>
-            {message && <p>{message}</p>}
+          <div className={styles['form-row']}>
+            <div className={styles['input-data']}>
+              <input className={styles['test-button']} type="submit" value="Submit" />
+            </div>
           </div>
-        </div>
-        <div className={`${styles['form-row']} ${styles['login-message']}`}>
-          <div className={styles['input-data']}>
-            Dont have an account?
-            {' '}
-            <Link to="/">Signup</Link>
+          <div className={`${styles['form-row']} ${styles['login-message']}`}>
+            <div className={styles['input-data']}>
+              {message && <p>{message}</p>}
+            </div>
           </div>
-        </div>
-        {status === 'loading' && <div>Loading...</div>}
-        {status === 'failed' && (
+          <div className={`${styles['form-row']} ${styles['login-message']}`}>
+            <div className={styles['input-data']}>
+              Dont have an account?
+              {' '}
+              <Link to="/">Signup</Link>
+            </div>
+          </div>
+          {status === 'loading' && <div>Loading...</div>}
+          {status === 'failed' && (
           <div>
             Error:
             {' '}
             {error}
           </div>
-        )}
-      </form>
-    </div>
+          )}
+        </form>
+      </div>
+    </>
   );
 }

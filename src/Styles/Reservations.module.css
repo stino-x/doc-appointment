@@ -6,6 +6,11 @@
   font-weight: 100;
 }
 
+.link-form {
+  color: black;
+  font-size: 1.2rem;
+}
+
 .container {
   position: relative;
   width: 95vw; /* Adjust width for responsiveness */

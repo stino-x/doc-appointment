@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'; // Import useNavigate
 import { fetchReservations } from '../redux/reducers/reservationslistSlice';
 import styles from '../Styles/Reservations.module.css'; // Import CSS module
 
@@ -45,30 +46,33 @@ export default function ReservationsTable() {
     );
   } else {
     content = (
-      <div className={styles.reservationsbody}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Reservation ID</th>
-              <th>Doctor Name</th>
-              <th>Reservation Time</th>
-              <th>Day of Week</th>
-              <th>Month</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reservations.map((reservation) => (
-              <tr key={reservation.reservation_id}>
-                <td>{reservation.reservation_id}</td>
-                <td>{reservation.doctor_name}</td>
-                <td>{formatReservationTime(reservation.reservation_time)}</td>
-                <td>{reservation.day_of_week}</td>
-                <td>{getMonthName(reservation.month)}</td>
+      <>
+        <Link className={styles['link-form']} to="/home">HOME</Link>
+        <div className={styles.reservationsbody}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Reservation ID</th>
+                <th>Doctor Name</th>
+                <th>Reservation Time</th>
+                <th>Day of Week</th>
+                <th>Month</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {reservations.map((reservation) => (
+                <tr key={reservation.reservation_id}>
+                  <td>{reservation.reservation_id}</td>
+                  <td>{reservation.doctor_name}</td>
+                  <td>{formatReservationTime(reservation.reservation_time)}</td>
+                  <td>{reservation.day_of_week}</td>
+                  <td>{getMonthName(reservation.month)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
     );
   }
 
