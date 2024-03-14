@@ -1,74 +1,44 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { toast } from 'react-hot-toast';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const apiURL = 'http://localhost:3000/auth';
+export const logoutUser = createAsyncThunk('logout/logoutUser', async () => {
+  // Make a DELETE request to log out the user
+  const response = await axios.delete('http://localhost:3000/logout', {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('userToken')}`, // Include the auth token in the headers
+    },
+  });
 
-export const logout = createAsyncThunk('auth/logout', async (_, { getState }) => {
-  try {
-    const state = getState();
-    const { user } = state.auth;
-    console.log('I JUST FIRED ');
-
-    if (!user) {
-      localStorage.clear();
-      return null;
-    }
-
-    const client = localStorage.getItem('client');
-    const accessToken = localStorage.getItem('access-token');
-
-    if (!client || !accessToken) {
-      localStorage.clear();
-      return null;
-    }
-
-    const headers = {
-      'access-token': accessToken,
-      client,
-      uid: user.data.uid,
-    };
-
-    // Simulating a logout endpoint as delete request
-    // You may need to adjust this if your API has a different endpoint for logout
-    await fetch(`${apiURL}/sign_out`, {
-      method: 'DELETE',
-      headers,
-    });
-
-    localStorage.clear();
-    return null;
-  } catch (error) {
-    toast.error('Sign-out failed. Please try again.');
-    throw error;
+  if (response.ok) {
+    // Clear the user token from local storage
+    localStorage.removeItem('userToken');
+    return true; // Indicate successful logout
   }
+  throw new Error('Failed to log out');
 });
 
 const initialState = {
-  user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
-  token: localStorage.getItem('token') || null,
-  loading: false,
-  error: null,
+  isLoggingOut: false,
+  logoutError: null,
 };
 
-const LogoutSlice = createSlice({
+const logoutSlice = createSlice({
   name: 'logout',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(logout.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(logout.fulfilled, (state) => {
-        state.loading = false;
-        state.user = null;
-        localStorage.clear();
-      })
-      .addCase(logout.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      });
+    builder.addCase(logoutUser.pending, (state) => {
+      state.isLoggingOut = true;
+      state.logoutError = null;
+    });
+    builder.addCase(logoutUser.fulfilled, (state) => {
+      state.isLoggingOut = false;
+    });
+    builder.addCase(logoutUser.rejected, (state, action) => {
+      state.isLoggingOut = false;
+      state.logoutError = action.error.message;
+    });
   },
 });
 
-export default LogoutSlice.reducer;
+export default logoutSlice.reducer;

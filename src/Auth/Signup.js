@@ -1,130 +1,114 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { signup } from '../redux/reducers/SignupSlice';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { signupAndLogin } from '../redux/reducers/authSlice';
+import styles from '../Styles/Signup.module.css'; // Import CSS module
 
-const SignupForm = () => {
+export default function Signup() {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Use useNavigate instead of useHistory
-  const signupStatus = useSelector((state) => state.signup.status);
-  if (signupStatus === 'succeeded') {
-    navigate('/home');
-  }
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
-    admin: false,
-    nickname: '',
-    image: '',
-  });
-  const handleChange = (e) => {
-    const {
-      name, value, type, checked,
-    } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-  const handleSubmit = async (e) => {
+  const signupStatus = useSelector((state) => state.auth.status);
+
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Dispatch signup action
-    await dispatch(signup(formData));
-    // Clear form inputs on successful signup
-    setFormData({
-      name: '',
-      email: '',
-      password: '',
-      password_confirmation: '', // Reset to empty string
-      admin: false,
-      nickname: '',
-      image: '',
-    });
+    // Prevent multiple submissions while waiting for response
+    if (signupStatus === 'loading') {
+      return;
+    }
+    dispatch(signupAndLogin({
+      firstname, lastname, email, password, role,
+    }))
+      .unwrap()
+      .then(() => {
+        // Reset input fields
+        setFirstname('');
+        setLastname('');
+        setEmail('');
+        setPassword('');
+        setRole('');
+        navigate('/home'); // Use navigate instead of history.push
+      })
+      .catch((error) => {
+        console.error('Signup failed:', error);
+      });
   };
+
   return (
-    <div>
-      <h2>Signup</h2>
+    <div className={styles.container}>
+      {/* Use styles.container instead of 'container' */}
+      <div className={styles.text}>
+        {/* Use styles.text instead of 'text' */}
+        SIGN UP
+      </div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            // required
-          />
+        <div className={styles['form-row']}>
+          {/* Use styles['form-row'] instead of 'form-row' */}
+          <div className={styles['input-data']}>
+            {/* Use styles['input-data'] instead of 'input-data' */}
+            <input type="text" id="firstName" value={firstname} onChange={(e) => setFirstname(e.target.value)} required />
+            <div className={styles.underline} />
+            <label htmlFor="firstName">First Name</label>
+          </div>
+          <div className={styles['input-data']}>
+            {/* Use styles['input-data'] instead of 'input-data' */}
+            <input type="text" id="lastName" value={lastname} onChange={(e) => setLastname(e.target.value)} required />
+            <div className={styles.underline} />
+            <label htmlFor="lastName">Last Name</label>
+          </div>
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+        <div className={styles['form-row']}>
+          {/* Use styles['form-row'] instead of 'form-row' */}
+          <div className={styles['input-data']}>
+            {/* Use styles['input-data'] instead of 'input-data' */}
+            <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <div className={styles.underline} />
+            <label htmlFor="email">Email Address</label>
+          </div>
+          <div className={styles['input-data']}>
+            {/* Use styles['input-data'] instead of 'input-data' */}
+            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <div className={styles.underline} />
+            <label htmlFor="website">Password</label>
+          </div>
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+        <div className={styles['form-row']}>
+          {/* Use styles['form-row'] instead of 'form-row' */}
+          <div className={`${styles['input-data']} ${styles.textarea}`}>
+            {/* Use styles['input-data'] instead of 'input-data' */}
+            <br />
+            <select className={styles['drop-down']} value={role} onChange={(e) => setRole(e.target.value)}>
+              <option value="">Select Role</option>
+              <option value="admin">Admin</option>
+              <option value="doctor">Doctor</option>
+              <option value="normal">Normal</option>
+            </select>
+            <br />
+          </div>
         </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="password_confirmation" // Updated to 'password_confirmation'
-            value={formData.password_confirmation} // Updated to 'password_confirmation'
-            onChange={handleChange}
-            // required
-          />
+        <div className={`${styles['form-row']} ${styles['button-row']}`}>
+          {/* Use styles['form-row'] and styles['button-row'] */}
+          <div className={styles['input-data']}>
+            {/* Use styles['input-data'] instead of 'input-data' */}
+            <input className={styles['test-button']} type="submit" value="Submit" />
+          </div>
         </div>
-        <div>
-          <label htmlFor="admin">Admin:</label>
-          <input
-            type="checkbox"
-            id="admin"
-            name="admin"
-            checked={formData.admin}
-            onChange={handleChange}
-          />
+        <div className={`${styles['form-row']} ${styles['login-message']}`}>
+          {/* Use styles['form-row'] and styles['login-message'] */}
+          <div className={styles['input-data']}>
+            {/* Use styles['input-data'] instead of 'input-data' */}
+            Already have an account?
+            {' '}
+            <Link to="/login">Login</Link>
+          </div>
         </div>
-        <div>
-          <label htmlFor="nickname">Nickname:</label>
-          <input
-            type="text"
-            id="nickname"
-            name="nickname"
-            value={formData.nickname}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="image">Image URL:</label>
-          <input
-            type="text"
-            id="image"
-            name="image"
-            value={formData.image}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Signup</button>
       </form>
     </div>
   );
-};
-export default SignupForm;
+}

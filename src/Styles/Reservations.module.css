@@ -1,0 +1,80 @@
+.reservationsbody {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #56d8e4, #9f01ea);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+.container {
+  position: relative;
+  width: 95vw; /* Adjust width for responsiveness */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+th {
+  text-align: left;
+}
+
+thead th {
+  background-color: #55608f;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+tbody td {
+  position: relative;
+}
+
+tbody td:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .reservationsbody {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container {
+    min-width: 100%; /* Adjust width for smaller screens */
+  }
+
+  table {
+    width: 50%;
+  }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 480px) {
+  .container {
+    width: 95%; /* Adjust width for even smaller screens */
+  }
+}
