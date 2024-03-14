@@ -9,7 +9,7 @@ import {
 import { useDispatch } from 'react-redux';
 import styles from '../Styles/Landingpage.module.css'; // Import module styles
 import DoctorCards from './Doctorcards';
-import { logoutUser } from '../redux/reducers/LogoutSlice';
+import { logoutUser } from '../redux/reducers/logoutSlice';
 import exampleImage from '../images/Image.png';
 
 export default function Landingpage() {

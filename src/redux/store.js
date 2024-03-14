@@ -6,8 +6,8 @@ import createReservationReducer from './reducers/createReservationSlice';
 import deleteDoctorReducer from './reducers/deletedoctorSlice'; // Update import path
 import doctorsListReducer from './reducers/doctorslistSlice'; // Update import path
 import fetchReservationsReducer from './reducers/reservationslistSlice'; // Update import path
-import loginReducer from './reducers/LoginSlice';
-import logoutReducer from './reducers/LogoutSlice';
+import loginReducer from './reducers/loginSlice';
+import logoutReducer from './reducers/logoutSlice';
 import doctorDetailsReducer from './reducers/doctorDetailsSlice'; // Import the new slice
 import availableSlotsSliceReducer from './reducers/FetchAvailableSlotsSlice'; // Import the new slice
 
