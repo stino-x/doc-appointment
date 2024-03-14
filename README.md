@@ -1,65 +1,203 @@
-# React and Redux
+<a name="readme-top"></a>
 
-If you are not familiar with linters and GitHub Actions, read [root level README](../README.md).
+<div align="center">
 
-## Set-up GitHub Actions
+<h1><b>Doctor Booking APP</b></h1>
+ 
+  <img src="./src/images/Image.png" alt="logo" width="200"  height="auto">
+  <br/>
 
-This GitHub Action is going to run [ESLint](https://eslint.org/) and [Stylelint](https://stylelint.io/) to help you find style issues.
+</div>
 
-[Stylelint](https://stylelint.io/) is a linter for your stylesheets that helps you avoid errors and enforce conventions.
 
-[ESLint](https://eslint.org/) is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+# 📗 Table of Contents
 
-Please do the following **steps in this order**:
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+    - [LINK TO BACK-END](#back-end)
+- [💻 Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [✍️ API Documentation](#api-documentation)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
+- [📝 License](#license)
 
-1. In the first commit of your feature branch create a `.github/workflows` folder and add a copy of [`.github/workflows/linters.yml`](.github/workflows/linters.yml) to that folder.
-    - **Remember** to use the file linked above
-    - **Remember** that `.github` folder starts with a dot.
-2. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-3. When you open your first pull request you should see the result of the GitHub Actions:
+# 📖 [Doctor Booking] <a name="about-project"></a>
 
-![gh actions checks](../assets/images/gh-actions-eslint-stylelint-checks.png)
+**[Doctor Booking]** is a web application that allows users to book a doctor. The user can see the
+list of doctors available and book one of them. The user can also see the list of bookings he/she
+made and cancel them if he/she wants to. The user can also see the list of bookings made by other users.
 
-Click on the `Details` link to see the full output and the errors that need to be fixed:
+## 🛠 Built With <a name="built-with"></a>
 
-![gh actions failing checks](../assets/images/gh-actions-html-css-failing-checks.png)
+1- Ruby 3.2.2<br>
+2- Rails 7.0.7.2<br>
+3- PostgreSQL<br>
+4- Gitflow<br>
+5- React<br>
 
-## Set-up linters in your local env
+### Tech Stack <a name="tech-stack"></a>
 
-### ESLint
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://www.microverse.org/">Microverse</a></li>
+  </ul>
+</details>
 
-1. Run 
-    ```
-    npm install --save-dev eslint@7.x eslint-config-airbnb@18.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-react@7.x eslint-plugin-react-hooks@4.x @babel/eslint-parser@7.x @babel/core@7.x  @babel/plugin-syntax-jsx@7.x  @babel/preset-react@7.x @babel/preset-react@7.x
-    ```
-    *not sure how to use npm? Read [this](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).*
-2. Copy [.eslintrc.json](./.eslintrc.json) and [.babelrc](./.babelrc) to the root directory of your project.
-3. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-4. Run `npx eslint "**/*.{js,jsx}"` on the root of your directory of your project.
-5. Fix linter errors.
-6. **IMPORTANT NOTE**: feel free to research [auto-correct options for Eslint](https://eslint.org/docs/latest/user-guide/command-line-interface#fixing-problems) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+<details>
+<summary>Front-end</summary>
+  <ul>
+    <li><a href="https://www.javascript.com/">JavaScript</a></li>
+    <li><a href="https://www.reactjs.org/">React</a></li>
+    <li><a href="https://www.redux.js.org/">Redux</a></li>
+    <li><a href="https://www.html.com/">HTML</a></li>
+    <li><a href="https://www.css.com/">CSS</a></li>
+  </ul>
+</details>
 
-### Stylelint
+<details>
+<summary>Back-end</summary>
+  <ul>
+    <li><a href="https://www.ruby-lang.org/">Ruby</a></li>
+    <li><a href="https://www.rubyonrails.org/">Rails</a></li>
+  </ul>
+</details>
 
-1. Run
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
 
-   ```
-   npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
-   ```
+### Key Features <a name="key-features"></a>
+- **[Login page and registration page]**
+- **[Doctors list]**
+- **[Reserve a doctor]**
+- **[List of reserved doctors]**
+- **[Responsive web design]**
 
-   *not sure how to use npm? Read [this](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).*
 
-2. Copy [.stylelintrc.json](./.stylelintrc.json) to the root directory of your project.
-3. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-   - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-4. Run `npx stylelint "**/*.{css,scss}"` on the root of your directory of your project.
-5. Fix linter errors.
-6. **IMPORTANT NOTE**: feel free to research [auto-correct options for Stylelint](https://stylelint.io/user-guide/usage/options) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Test/Deployment Actions
+## LINK TO BACK-END <a name="back-end"></a>
+Link: [Back end](https://github.com/stino-x/doc-appointment-backend)
 
-Feel free to add your own deployment actions which can run your tests and deploy to Heroku.
+## 🚀 Live Demo <a name="live-demo"></a>
 
-Make sure that you do not modify the [`.github/workflows/linters.yml`](.github/workflows/linters.yml) but that you create a separe GitHub Action workflow file for that.
+- [lIVE DEMO]()
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+- SETUP [Backend](https://github.com/stino-x/doc-appointment-backend) first
+
+In order to run this project you need:
+
+Web Browser (Chrome recommended)<br>
+Code editor (VS recommended)<br>
+GitHub account<br>
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+  cd my-folder
+  git clone "https://github.com/stino-x/doc-appointment"
+```
+### Install
+
+Go to your /doc-appointment folder:
+
+```sh
+  cd /doc-appointment
+  npm install
+```
+
+### Usage
+
+```sh
+  npm start
+```
+
+### Deployment
+
+Project Deployed using this project using:<br>[]()
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ✍️ API Documentation <a name="api-documentation"></a>
+
+#### Link to Swagger API Docs:
+
+[API Documentation](https://docs.google.com/document/d/13OQu_v0dphusgY33zrDm3B_vsdavvDGy_O5qIst0YIw/edit?usp=sharing) 
+
+## 👥 Authors <a name="authors"></a>
+
+### 👤 **Iheagwara Augustine**
+
+- GitHub: [@stino-x](https://github.com/stino-x)
+
+### 👤 **Mohamed Gamaleldin**
+
+- GitHub: [@githubhandle](https://github.com/mohamedgamaleldin999999)
+- Twitter: [@twitterhandle](https://twitter.com/Mohamme43086002)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/stino-x/doc-appointment/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project, please give us a like, it doesn't cost you anything and it helps us a lot to keep working.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+We would like to thank Microverse for pushing us to work hard every day!
+
+Original design idea [Murat Korkmaz on Behance](https://www.behance.net/muratk)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ❓ FAQ <a name="faq"></a>
+
+- **["How can I see more projects associated with these authors?"]**
+
+   - Check [@mohammed](https://github.com/mohamedgamaleldin999999), [@Iheagwara](https://github.com/stino-x),
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+ 
