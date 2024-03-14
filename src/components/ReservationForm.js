@@ -25,11 +25,6 @@ export default function ReservationForm() {
     dispatch(fetchAvailableSlots(localStorage.getItem('selectedDoctorId')));
   }, [dispatch]);
 
-  // const getMonthNumber = (monthName) => {
-  //   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  //   return monthNames.indexOf(monthName) + 1; // Months are 1-indexed
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const docId = localStorage.getItem('selectedDoctorId');

@@ -25,15 +25,8 @@
 }
 
 body {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   min-height: 100vh;
   padding: 10px;
-
-  /* flex: 2; */
-
-  /* background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%); */
 }
 
 .fa-2x {
@@ -181,11 +174,6 @@ a:focus {
   overflow: visible;
 }
 
-/* a:hover,
-a:focus {
-  text-decoration: none;
-} */
-
 nav {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -193,13 +181,6 @@ nav {
   -o-user-select: none;
   user-select: none;
 }
-
-/* nav ul,
-nav li {
-  outline: 0;
-  margin: 0;
-  padding: 0;
-} */
 
 .dropdown-menu > .active > a,
 .main-menu li:hover > a,

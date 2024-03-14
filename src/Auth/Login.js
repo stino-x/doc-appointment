@@ -63,9 +63,7 @@ export default function Login() {
           </div>
         </div>
         <div className={`${styles['form-row']} ${styles['login-message']}`}>
-          {/* Use styles['form-row'] and styles['login-message'] */}
           <div className={styles['input-data']}>
-            {/* Use styles['input-data'] instead of 'input-data' */}
             Dont have an account?
             {' '}
             <Link to="/">Signup</Link>

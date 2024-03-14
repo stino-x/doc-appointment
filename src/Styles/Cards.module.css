@@ -25,29 +25,6 @@
   background-color: white;
 }
 
-/* .logocontainer {
-  position: relative;
-  display: flex;
-  gap: 10%;
-  width: 80%;
-  height: 100%;
-  margin: auto;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.logo {
-  position: absolute;
-  display: table-cell;
-  right: 50%;
-  width: 50%;
-  height: 50%;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 30px;
-  color: white;
-} */
-
 .cardWrapper {
   background-color: transparent;
   border-radius: 10px;

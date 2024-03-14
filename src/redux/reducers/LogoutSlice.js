@@ -5,7 +5,7 @@ export const logoutUser = createAsyncThunk('logout/logoutUser', async () => {
   // Make a DELETE request to log out the user
   const response = await axios.delete('http://localhost:3000/logout', {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('userToken')}`, // Include the auth token in the headers
+      Authorization: `Bearer ${localStorage.getItem('userToken')}`,
     },
   });
 
