@@ -42,46 +42,36 @@ export default function Signup() {
 
   return (
     <div className={styles.container}>
-      {/* Use styles.container instead of 'container' */}
       <div className={styles.text}>
-        {/* Use styles.text instead of 'text' */}
         SIGN UP
       </div>
       <form onSubmit={handleSubmit}>
         <div className={styles['form-row']}>
-          {/* Use styles['form-row'] instead of 'form-row' */}
           <div className={styles['input-data']}>
-            {/* Use styles['input-data'] instead of 'input-data' */}
             <input type="text" id="firstName" value={firstname} onChange={(e) => setFirstname(e.target.value)} required />
             <div className={styles.underline} />
             <label htmlFor="firstName">First Name</label>
           </div>
           <div className={styles['input-data']}>
-            {/* Use styles['input-data'] instead of 'input-data' */}
             <input type="text" id="lastName" value={lastname} onChange={(e) => setLastname(e.target.value)} required />
             <div className={styles.underline} />
             <label htmlFor="lastName">Last Name</label>
           </div>
         </div>
         <div className={styles['form-row']}>
-          {/* Use styles['form-row'] instead of 'form-row' */}
           <div className={styles['input-data']}>
-            {/* Use styles['input-data'] instead of 'input-data' */}
             <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
             <div className={styles.underline} />
             <label htmlFor="email">Email Address</label>
           </div>
           <div className={styles['input-data']}>
-            {/* Use styles['input-data'] instead of 'input-data' */}
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             <div className={styles.underline} />
             <label htmlFor="website">Password</label>
           </div>
         </div>
         <div className={styles['form-row']}>
-          {/* Use styles['form-row'] instead of 'form-row' */}
           <div className={`${styles['input-data']} ${styles.textarea}`}>
-            {/* Use styles['input-data'] instead of 'input-data' */}
             <br />
             <select className={styles['drop-down']} value={role} onChange={(e) => setRole(e.target.value)}>
               <option value="">Select Role</option>
@@ -93,16 +83,12 @@ export default function Signup() {
           </div>
         </div>
         <div className={`${styles['form-row']} ${styles['button-row']}`}>
-          {/* Use styles['form-row'] and styles['button-row'] */}
           <div className={styles['input-data']}>
-            {/* Use styles['input-data'] instead of 'input-data' */}
             <input className={styles['test-button']} type="submit" value="Submit" />
           </div>
         </div>
         <div className={`${styles['form-row']} ${styles['login-message']}`}>
-          {/* Use styles['form-row'] and styles['login-message'] */}
           <div className={styles['input-data']}>
-            {/* Use styles['input-data'] instead of 'input-data' */}
             Already have an account?
             {' '}
             <Link to="/login">Login</Link>

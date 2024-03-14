@@ -9,14 +9,8 @@
 }
 
 body {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   min-height: 100vh;
   min-width: 98vw;
-
-  /* flex: 2; */
-
   background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
   background: linear-gradient(115deg, #9f01ea 10%, #56d8e4 90%);
 }
@@ -219,20 +213,4 @@ body {
   .test-button {
     background: linear-gradient(to right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
   }
-
-  /* .form-row .submit-btn .inner {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    left: 70%;
-    background-color: red;
-  }
-
-  .form-row .submit-btn input {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    left: 70%;
-    background-color: red;
-  } */
 }
