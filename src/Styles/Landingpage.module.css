@@ -1,0 +1,235 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+#root {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  height: 100vh;
+  background-color: white;
+}
+
+.landingconatiner {
+  display: grid;
+  grid-template-columns: 0.1fr 0.8fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  min-height: 95vh;
+  min-width: 95vw;
+}
+
+body {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  min-height: 100vh;
+  padding: 10px;
+
+  /* flex: 2; */
+
+  /* background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%); */
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 30px;
+  color: white;
+}
+
+.logocontainer {
+  position: relative;
+  width: 10%;
+  height: 10%;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.logo {
+  position: absolute;
+  display: table-cell;
+  right: 50%;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 30px;
+  color: white;
+}
+
+.svg-inline--fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 5px;
+  color: white;
+}
+
+.main-menu {
+  background: linear-gradient(to right, #56d8e4, #9f01ea);
+  border-right: 1px solid #49494986;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 97vh;
+  left: 0;
+  width: 60px;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  -webkit-transition: width 0.05s linear;
+  transition: width 0.05s linear;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  z-index: 1000;
+}
+
+.carousellist {
+  grid-column: 2 / 3;
+}
+
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 250px;
+  overflow: visible;
+}
+
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.main-menu > ul {
+  margin: 7px 0;
+}
+
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 250px;
+  margin-bottom: 20%;
+}
+
+.main-menu li > a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #999;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu > ul.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y: auto;
+  overflow: visible;
+}
+
+/* a:hover,
+a:focus {
+  text-decoration: none;
+} */
+
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+} */
+
+.dropdown-menu > .active > a,
+.main-menu li:hover > a,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+nav.main-menu li.active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.dashboard-page nav.dashboard-menu ul li.active a,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a {
+  color: #fff;
+  background-color: #000;
+}
+
+.area {
+  float: left;
+  background: #e2e2e2;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav-text {
+    width: 100px;
+  }
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
